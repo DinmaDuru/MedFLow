@@ -1,0 +1,21 @@
+POST
+
+/api/auth/login
+
+Description
+
+Authenticates user
+
+Request
+
+Email
+
+Password
+
+Response
+
+JWT Token
+
+Refresh Token
+
+Role
