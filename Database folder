@@ -1,0 +1,11 @@
+database/
+
+schema.sql
+
+seed.sql
+
+ERD.png
+
+Relationships.png
+
+Migrations/
