@@ -74,7 +74,48 @@ AWS
 
 System Architecture
 
-(Insert architecture diagram)
+                        +---------------------------+
+                        |        Web Browser        |
+                        |---------------------------|
+                        | Patient Portal            |
+                        | Hospital Portal           |
+                        +------------+--------------+
+                                     |
+                                     |
+                           HTTPS / REST API
+                                     |
+                                     ▼
+                  +------------------------------------+
+                  |         Backend Application        |
+                  |------------------------------------|
+                  | Authentication (JWT)               |
+                  | Patient Management                 |
+                  | Appointment Management             |
+                  | Queue Management                   |
+                  | Triage Decision Engine             |
+                  | Notification Service              |
+                  | Analytics Engine                  |
+                  +----------------+-------------------+
+                                   |
+                                   |
+                          SQL Queries
+                                   |
+                                   ▼
+                +-------------------------------------+
+                |          PostgreSQL Database        |
+                |-------------------------------------|
+                | Users                              |
+                | Patients                           |
+                | Appointments                       |
+                | Symptoms                           |
+                | Triage Questions                   |
+                | Triage Responses                   |
+                | Risk Assessments                   |
+                | Queue Records                      |
+                | Medical Profiles                   |
+                | Notifications                      |
+                | Audit Logs                         |
+                +-------------------------------------+
 
 Screenshots
 
@@ -102,7 +143,130 @@ Open Browser
 
 Folder Structure
 
-(show structure)
+MedFlow/
+│
+├── .github/                         # GitHub workflows and templates
+│   ├── workflows/
+│   │   ├── ci.yml
+│   │   ├── lint.yml
+│   │   └── deploy.yml
+│   ├── ISSUE_TEMPLATE/
+│   └── PULL_REQUEST_TEMPLATE.md
+│
+├── docs/                            # Project documentation
+│   ├── ProjectProposal.md
+│   ├── PRD.md
+│   ├── SRS.md
+│   ├── Architecture.md
+│   ├── DatabaseDesign.md
+│   ├── API.md
+│   ├── UserFlows.md
+│   ├── DesignSystem.md
+│   ├── DeploymentGuide.md
+│   ├── Testing.md
+│   └── UserManual.md
+│
+├── frontend/                        # React Frontend
+│   ├── public/
+│   │
+│   ├── src/
+│   │   ├── assets/
+│   │   │   ├── images/
+│   │   │   ├── icons/
+│   │   │   └── logos/
+│   │   │
+│   │   ├── components/
+│   │   │   ├── common/
+│   │   │   ├── dashboard/
+│   │   │   ├── appointments/
+│   │   │   ├── queue/
+│   │   │   ├── triage/
+│   │   │   └── notifications/
+│   │   │
+│   │   ├── pages/
+│   │   │   ├── Landing/
+│   │   │   ├── Login/
+│   │   │   ├── Register/
+│   │   │   ├── Dashboard/
+│   │   │   ├── Assessment/
+│   │   │   ├── Appointments/
+│   │   │   ├── Queue/
+│   │   │   ├── Profile/
+│   │   │   ├── MedicalHistory/
+│   │   │   ├── Analytics/
+│   │   │   └── Settings/
+│   │   │
+│   │   ├── layouts/
+│   │   ├── hooks/
+│   │   ├── services/
+│   │   ├── context/
+│   │   ├── routes/
+│   │   ├── utils/
+│   │   ├── styles/
+│   │   ├── constants/
+│   │   ├── types/
+│   │   ├── App.tsx
+│   │   └── main.tsx
+│   │
+│   ├── package.json
+│   └── vite.config.ts
+│
+├── backend/                         # Node.js Backend
+│   ├── src/
+│   │   ├── config/
+│   │   ├── controllers/
+│   │   ├── middleware/
+│   │   ├── routes/
+│   │   ├── services/
+│   │   ├── repositories/
+│   │   ├── models/
+│   │   ├── validators/
+│   │   ├── database/
+│   │   ├── utils/
+│   │   ├── triage/
+│   │   ├── analytics/
+│   │   ├── notifications/
+│   │   └── app.js
+│   │
+│   ├── tests/
+│   ├── package.json
+│   └── server.js
+│
+├── database/
+│   ├── schema.sql
+│   ├── seed.sql
+│   ├── migrations/
+│   ├── ERD.png
+│   └── README.md
+│
+├── design/
+│   ├── figma/
+│   ├── wireframes/
+│   ├── mockups/
+│   ├── prototypes/
+│   └── assets/
+│
+├── presentation/
+│   ├── MedFlow_Presentation.pptx
+│   ├── DemoScript.md
+│   └── PitchDeck.pdf
+│
+├── screenshots/
+│   ├── landing-page.png
+│   ├── patient-dashboard.png
+│   ├── triage.png
+│   ├── appointments.png
+│   ├── hospital-dashboard.png
+│   └── analytics.png
+│
+├── .env.example
+├── .gitignore
+├── CHANGELOG.md
+├── CODE_OF_CONDUCT.md
+├── CONTRIBUTING.md
+├── LICENSE
+├── README.md
+└── docker-compose.yml
 
 API Documentation
 
